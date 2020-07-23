@@ -10,8 +10,25 @@ export default class App extends Component {
     this.addSymb = this.addSymb.bind(this)
   }
 
-  addSymb = symb => {
-    this.setState({calculate: this.state.calculate + symb})
+  addSymb = e => {
+    this.setState({calculate: this.state.calculate + e.target.innerText})
+  }
+
+  clearFunc = () => {
+    this.setState({calculate: ''})
+  }
+
+  deleteFunc = () => {
+    let exp = this.state.calculate
+    this.setState({
+      calculate: exp.slice(0, exp.length - 1)
+    })
+  }
+
+  equalFunc = (state) => {
+    this.setState({
+      calculate: eval(this.state.calculate)
+    })
   }
 
   render(){
@@ -25,23 +42,26 @@ export default class App extends Component {
               </form>
             </div>
             <div className="square">
-              <div className="clean">C</div>
-              <div className="del">&larr;</div>
-              <div className="equal">=</div>
+              <div className="clean" onClick={this.clearFunc}>C</div>
+              <div className="del" onClick={this.deleteFunc}>&larr;</div>
+              <div className="equal" onClick={this.equalFunc}>=</div>
               <div className="num" onClick={this.addSymb}>1</div>
-              <div className="num">2</div>
-              <div className="num">3</div>
-              <div className="plus">+</div>
-              <div className="num">4</div>
-              <div className="num">5</div>
-              <div className="num">6</div>
-              <div className="minus">-</div>
-              <div className="num">7</div>
-              <div className="num">8</div>
-              <div className="num">9</div>
-              <div className="mul">&times;</div>
-              <div className="zero">0</div>
-              <div className="divi">&divide;</div>
+              <div className="num" onClick={this.addSymb}>2</div>
+              <div className="num" onClick={this.addSymb}>3</div>
+              <div className="plus" onClick={this.addSymb}>+</div>
+              <div className="num" onClick={this.addSymb}>4</div>
+              <div className="num" onClick={this.addSymb}>5</div>
+              <div className="num" onClick={this.addSymb}>6</div>
+              <div className="minus" onClick={this.addSymb}>-</div>
+              <div className="num" onClick={this.addSymb}>7</div>
+              <div className="num" onClick={this.addSymb}>8</div>
+              <div className="num" onClick={this.addSymb}>9</div>
+              <div className="mul" onClick={this.addSymb}>*</div>
+              <div className="zero" onClick={this.addSymb}>0</div>
+              <div className="num" onClick={this.addSymb}>.</div>
+              <div className="divi" onClick={this.addSymb}>/</div>
+              <div className="num bracket1" onClick={this.addSymb}>(</div>
+              <div className="num bracket2" onClick={this.addSymb}>)</div>
             </div>
             
           </div>
