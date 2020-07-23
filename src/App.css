@@ -98,6 +98,7 @@ input {
 .square .equal {
   grid-column: 4/-1;
   background: #6d6fdd;
+  padding-bottom: 6px;
 }
 
 
