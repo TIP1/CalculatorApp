@@ -1,38 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="container">
-      <div className="caclulator">
-        <div className="lineofnum">
-          <form name="form">
-            <input name="numbers" type="text" readOnly/>
-          </form>
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      calculate: ''
+    };
+    this.addSymb = this.addSymb.bind(this)
+  }
+
+  addSymb = symb => {
+    this.setState({calculate: this.state.calculate + symb})
+  }
+
+  render(){
+    return (
+      <div className="container">
+          <div className="wrapcalc">
+          <div className="caclulator">
+            <div className="lineofnum">
+              <form name="form">
+                <input name="numbers" type="text" readOnly value={this.state.calculate}/>
+              </form>
+            </div>
+            <div className="square">
+              <div className="clean">C</div>
+              <div className="del">&larr;</div>
+              <div className="num" onClick={this.addSymb}>1</div>
+              <div className="num">2</div>
+              <div className="num">3</div>
+              <div className="plus">+</div>
+              <div className="num">4</div>
+              <div className="num">5</div>
+              <div className="num">6</div>
+              <div className="minus">-</div>
+              <div className="num">7</div>
+              <div className="num">8</div>
+              <div className="num">9</div>
+              <div className="mul">&times;</div>
+              <div className="zero">0</div>
+              <div className="divi">&divide;</div>
+            </div>
+            
+          </div>
         </div>
-        <div className="clean">C</div>
-        <div className="del">&larr;</div>
-        <div className="plus">+</div>
-        <div className="minus">-</div>
-        <div className="mul">&times;</div>
-        <div className="divi">&divide;</div>
-        <div className="number">7</div>
-        <div className="number">8</div>
-        <div className="number">9</div>
-        <div className="item">(</div>
-        <div className="number">4</div>
-        <div className="number">5</div>
-        <div className="number">6</div>
-        <div className="item">)</div>
-        <div className="number">1</div>
-        <div className="number">2</div>
-        <div className="number">3</div>
-        <div className="eq">=</div>
-        <div className="zero">0</div>
-        <div className="dot">.</div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default App;
+
