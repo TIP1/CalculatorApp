@@ -27,6 +27,7 @@ export default class App extends Component {
             <div className="square">
               <div className="clean">C</div>
               <div className="del">&larr;</div>
+              <div className="equal">=</div>
               <div className="num" onClick={this.addSymb}>1</div>
               <div className="num">2</div>
               <div className="num">3</div>
